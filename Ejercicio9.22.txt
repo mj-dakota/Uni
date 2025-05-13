@@ -1,0 +1,13 @@
+import networkx as nx
+
+G = nx.DiGraph()
+G.add_edges_from([
+    ('a', 'b'), ('b', 'c'), ('c', 'd'), ('c', 'e'), ('d', 'e')
+])
+
+print("\nProblema 9.22 - Enumeración de aristas:")
+print(list(G.edges))
+
+print(f"\n¿Es débilmente conexo? {nx.is_weakly_connected(G)}")
+print(f"¿Es unilateralmente conexo? {nx.is_weakly_connected(G)}")
+print(f"¿Es fuertemente conexo? {nx.is_strongly_connected(G)}")
