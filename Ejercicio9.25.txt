@@ -1,0 +1,37 @@
+import networkx as nx
+import matplotlib.pyplot as plt
+
+print("\n--- Ejercicio 9.25 ---")
+
+direcciones = [
+    '2.1.1', '3.1', '2.1', '1', '2.2.1.2', '0', '3.2', '2.1.1', '2.2',
+    '1.1', '2', '3.1.1', '2.2.1', '3', '2.2.1.1'
+]
+
+# a)
+direcciones_ordenadas = sorted(direcciones, key=lambda x: list(map(int, x.split('.'))))
+print("Direcciones en orden lexicográfico:")
+for d in direcciones_ordenadas:
+    print(d)
+
+# b)
+T25 = nx.DiGraph()
+T25.add_node('Raíz')
+
+def agregar_direccion(arbol, direccion):
+    partes = direccion.split('.')
+    nodo_actual = 'Raíz'
+    for i, parte in enumerate(partes):
+        nuevo_nodo = f"{'.'.join(partes[:i+1])}"
+        if not arbol.has_edge(nodo_actual, nuevo_nodo):
+            arbol.add_edge(nodo_actual, nuevo_nodo)
+        nodo_actual = nuevo_nodo
+
+for d in direcciones_ordenadas:
+    agregar_direccion(T25, d)
+
+pos = nx.nx_agraph.graphviz_layout(T25, prog="dot")
+plt.figure(figsize=(10, 6))
+nx.draw(T25, pos, with_labels=True, node_size=500, node_color='lightblue', arrows=True)
+plt.title("Árbol del ejercicio 9.25 (Direcciones en árbol con raíz)")
+plt.show()
