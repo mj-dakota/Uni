@@ -1,0 +1,20 @@
+import networkx as nx
+from itertools import islice
+
+S = nx.DiGraph()
+S.add_edges_from([
+    ('a', 'c'),
+    ('b', 'c'),
+    ('c', 'e'),
+    ('c', 'd'),
+    ('d', 'f')
+])
+
+def all_topological_sorts(G):
+    return list(nx.all_topological_sorts(G))
+
+ordenamientos = all_topological_sorts(S)
+
+print("Problema 9.16 - Ordenamientos topológicos posibles:")
+for i, orden in enumerate(ordenamientos, 1):
+    print(f"T{i} = {orden}")
