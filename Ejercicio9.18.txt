@@ -1,0 +1,42 @@
+import networkx as nx
+
+G = nx.DiGraph()
+G.add_edges_from([
+    ('v1', 'v2'), ('v1', 'v3'),
+    ('v2', 'v3'), ('v2', 'v4'),
+    ('v3', 'v1'), ('v3', '4'),
+    ('v4', 'v2'), ('v4', 'v4'), ('v4', 'v5'),
+    ('v5', 'v3')
+])
+
+# a)
+print("Problema 9.18 - Grado de entrada y salida:")
+for node in G.nodes:
+    print(f"{node}: in {G.in_degree(node)}, out {G.out_degree(node)}")
+
+# b)
+print("\nFuentes y sumideros:")
+for node in G.nodes:
+    if G.in_degree(node) == 0:
+        print(f"{node} es fuente")
+    if G.out_degree(node) == 0:
+        print(f"{node} es sumidero")
+
+# c)
+print("\nCaminos simples de v1 a v4:")
+for path in nx.all_simple_paths(G, source='v1', target='v4'):
+    print(path)
+
+# d)
+print("\nCiclos en G:")
+for cycle in nx.simple_cycles(G):
+    print(cycle)
+
+# e)
+print("\nCaminos de longitud 3 o menos de v1 a v3:")
+for path in nx.all_simple_paths(G, source='v1', target='v3', cutoff=3):
+    print(path)
+
+# f)
+print(f"\n¿Es unilateralmente conexo? {nx.is_weakly_connected(G)}")
+print(f"¿Es fuertemente conexo? {nx.is_strongly_connected(G)}")
