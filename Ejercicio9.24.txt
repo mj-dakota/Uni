@@ -1,0 +1,39 @@
+import networkx as nx
+
+print("\n--- Ejercicio 9.24 ---")
+
+T = nx.DiGraph()
+T.add_edges_from([
+    ('R', 'A'), ('R', 'B'), ('R', 'C'),
+    ('A', 'D'), ('A', 'E'),
+    ('B', 'F'), ('B', 'G'),
+    ('F', 'H'), ('F', 'J')
+])
+
+# a)
+targets = ['D', 'J', 'G']
+for target in targets:
+    path = nx.shortest_path(T, source='R', target=target)
+    level = len(path) - 1
+    print(f"Camino de R a {target}: {path}, nivel: {level}")
+
+# b)
+leaves = [n for n in T.nodes if T.out_degree(n) == 0]
+print(f"Hojas de T: {leaves}")
+
+# c)
+def direccion_universal(tree, root, node):
+    path = nx.shortest_path(tree, source=root, target=node)
+    direccion = []
+    for i in range(len(path) - 1):
+        padre = path[i]
+        hijo = path[i + 1]
+        hijos = list(tree.successors(padre))
+        index = hijos.index(hijo) + 1
+        direccion.append(str(index))
+    return ".".join(direccion)
+
+print("Dirección universal de cada hoja:")
+for hoja in leaves:
+    dir_uni = direccion_universal(T, 'R', hoja)
+    print(f"{hoja}: {dir_uni}")
