@@ -1,0 +1,37 @@
+import networkx as nx
+
+G = nx.DiGraph()
+G.add_edges_from([
+    ('A', 'B'), ('B', 'E'), ('A', 'C'), ('C', 'D'), ('C', 'E'), ('D', 'A')
+])
+
+print("\nProblema 9.23 - Tabla de adyacencia:")
+print(nx.to_numpy_array(G, dtype=int, nodelist=['A', 'B', 'C', 'D', 'E']))
+
+print("\nFuentes y sumideros:")
+for node in G.nodes:
+    if G.in_degree(node) == 0:
+        print(f"{node} es fuente")
+    if G.out_degree(node) == 0:
+        print(f"{node} es sumidero")
+
+print("\nCaminos simples de A a E:")
+for path in nx.all_simple_paths(G, source='A', target='E'):
+    print(path)
+
+print("\nCiclos en G:")
+for cycle in nx.simple_cycles(G):
+    print(cycle)
+
+print("\nCamino de expansión de G:")
+found = False
+for path in nx.all_simple_paths(G, source='A', target='E'):
+    if set(path) == set(G.nodes):
+        print(path)
+        found = True
+        break
+
+if not found:
+    print("No hay camino de expansión que pase por todos los nodos.")
+
+print(f"\n¿Es fuertemente conexo? {nx.is_strongly_connected(G)}")
