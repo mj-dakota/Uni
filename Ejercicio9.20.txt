@@ -1,0 +1,28 @@
+import networkx as nx
+
+G = nx.DiGraph()
+G.add_edges_from([
+    ('v1', 'v2'), ('v1', 'v3'),
+    ('v2', 'v4'), ('v2', 'v5'),
+    ('v3', 'v4'), ('v3', 'v5'),
+    ('v4', 'v6'),
+    ('v5', 'v6'),
+    ('v6', 'v3')
+])
+
+print("\nProblema 9.20 - Sucesores:")
+print(f"sucesores de v1: {list(G.successors('v1'))}")
+print(f"sucesores de v3: {list(G.successors('v3'))}")
+print(f"sucesores de v5: {list(G.successors('v5'))}")
+
+print("\nSubgrafo H generado por {{v1, v3, v5, v6}} y {{v2, v3, v6, v7}}:")
+H1 = G.subgraph(['v1', 'v3', 'v5', 'v6'])
+H2 = G.subgraph(['v2', 'v3', 'v6', 'v7'])
+
+print("Nodos y aristas de H1:")
+print(H1.nodes)
+print(H1.edges)
+
+print("\nNodos y aristas de H2:")
+print(H2.nodes)
+print(H2.edges)
