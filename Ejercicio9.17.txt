@@ -1,0 +1,17 @@
+import numpy as np
+
+A = np.array([
+    [0, 1, 0, 1],
+    [0, 0, 1, 0],
+    [1, 0, 0, 1],
+    [0, 0, 1, 0]
+])
+
+n = A.shape[0]
+
+K = 3
+
+A_K = np.linalg.matrix_power(A, K)
+
+print(f"Problema 9.17 - Matriz de caminos de longitud {K}:")
+print(A_K)
