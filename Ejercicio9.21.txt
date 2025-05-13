@@ -1,0 +1,34 @@
+import networkx as nx
+
+G = nx.DiGraph()
+G.add_edges_from([
+    ('A', 'D'), ('B', 'C'), ('C', 'E'), ('D', 'B'), ('D', 'D'), ('D', 'E'), ('E', 'A')
+])
+
+print("\nProblema 9.21 - Tabla de adyacencia:")
+print(nx.to_numpy_array(G, dtype=int, nodelist=['A', 'B', 'C', 'D', 'E']))
+
+print("\n¿Lazos o aristas paralelas?")
+for node in G.nodes:
+    if G.has_edge(node, node):
+        print(f"Lazo en {node}")
+
+print("\nCaminos simples de D a E:")
+for path in nx.all_simple_paths(G, source='D', target='E'):
+    print(path)
+
+print("\nCiclos en G:")
+for cycle in nx.simple_cycles(G):
+    print(cycle)
+
+print("\nConectividad:")
+print(f"¿Es unilateralmente conexo? {nx.is_weakly_connected(G)}")
+print(f"¿Es fuertemente conexo? {nx.is_strongly_connected(G)}")
+
+print("\nNúmero de subgrafos con vértices C, D, E:")
+H = G.subgraph(['C', 'D', 'E'])
+print(H.nodes)
+print(H.edges)
+
+print("\nSubgrafo H:")
+print(nx.to_numpy_array(H, dtype=int, nodelist=['C', 'D', 'E']))
