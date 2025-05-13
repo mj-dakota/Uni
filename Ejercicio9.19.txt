@@ -1,0 +1,60 @@
+import networkx as nx
+
+G = nx.DiGraph()
+G.add_edges_from([
+    ('v1', 'v2'), ('v1', 'v3'),
+    ('v2', 'v4'), ('v2', 'v5'),
+    ('v3', 'v4'), ('v3', 'v5'),
+    ('v4', 'v6'),
+    ('v5', 'v6'),
+    ('v6', 'v3')
+])
+
+# a)
+print("\nProblema 9.19 - Fuentes y sumideros:")
+print("Fuentes:")
+for node in G.nodes:
+    if G.in_degree(node) == 0:
+        print(f"{node} es fuente")
+
+print("Sumideros:")
+for node in G.nodes:
+    if G.out_degree(node) == 0:
+        print(f"{node} es sumidero")
+
+# b)
+print("\nCaminos simples de v1 a v4:")
+for path in nx.all_simple_paths(G, source='v1', target='v4'):
+    print(path)
+
+# c)
+print("\nCamino no simple de v1 a v4 (se permite repetir nodos):")
+from itertools import islice
+
+def all_paths(G, start, end, max_depth):
+    stack = [(start, [start])]
+    while stack:
+        (vertex, path) = stack.pop()
+        if len(path) > max_depth:
+            continue
+        for next_node in G.successors(vertex):
+            if next_node == end:
+                yield path + [next_node]
+            else:
+                stack.append((next_node, path + [next_node]))
+
+found = False
+for path in all_paths(G, 'v1', 'v4', 10):
+    if len(set(path)) != len(path):
+        print(path)
+        found = True
+        break
+
+if not found:
+    print("No se encontró camino no simple.")
+
+# d)
+print("\nCiclos en G que incluyen v4:")
+for cycle in nx.simple_cycles(G):
+    if 'v4' in cycle:
+        print(cycle)
