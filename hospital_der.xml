@@ -1,5 +1,5 @@
 <mxfile host="app.diagrams.net">
-  <diagram name="DER Clásico Hospital con Cardinalidades" id="hospital-der-classic-card">
+  <diagram name="DER Clásico Hospital con Rombos" id="hospital-der-ov">
     <mxGraphModel dx="1220" dy="720" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0"/>
@@ -34,81 +34,79 @@
           <mxGeometry x="500" y="450" width="120" height="50" as="geometry"/>
         </mxCell>
 
-        <!-- RELACIONES -->
-        <mxCell id="rel_pac_cita" value="tiene" style="shape=rhombus;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
-          <mxGeometry x="180" y="200" width="80" height="60" as="geometry"/>
+        <!-- RELACIONES (Rombos / Óvalos) -->
+        <mxCell id="R_tiene" value="tiene" style="shape=rhombus;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="180" y="200" width="80" height="50" as="geometry"/>
         </mxCell>
 
-        <mxCell id="rel_med_cita" value="atiende" style="shape=rhombus;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
-          <mxGeometry x="340" y="200" width="80" height="60" as="geometry"/>
+        <mxCell id="R_atiende" value="atiende" style="shape=rhombus;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="340" y="200" width="80" height="50" as="geometry"/>
         </mxCell>
 
-        <mxCell id="rel_med_espec" value="pertenece" style="shape=rhombus;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
-          <mxGeometry x="560" y="100" width="80" height="60" as="geometry"/>
+        <mxCell id="R_pertenece" value="pertenece" style="shape=rhombus;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="560" y="100" width="80" height="50" as="geometry"/>
         </mxCell>
 
-        <mxCell id="rel_pac_fact" value="genera" style="shape=rhombus;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
-          <mxGeometry x="140" y="370" width="80" height="60" as="geometry"/>
+        <mxCell id="R_genera" value="genera" style="shape=rhombus;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="140" y="370" width="80" height="50" as="geometry"/>
         </mxCell>
 
-        <mxCell id="rel_pac_ing" value="ocupa" style="shape=rhombus;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
-          <mxGeometry x="200" y="370" width="80" height="60" as="geometry"/>
+        <mxCell id="R_ocupa" value="ocupa" style="shape=rhombus;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="200" y="370" width="80" height="50" as="geometry"/>
         </mxCell>
 
-        <mxCell id="rel_ing_hab" value="asignado" style="shape=rhombus;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
-          <mxGeometry x="380" y="370" width="80" height="60" as="geometry"/>
+        <mxCell id="R_asignado" value="asignado" style="shape=rhombus;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="380" y="370" width="80" height="50" as="geometry"/>
         </mxCell>
 
-        <!-- CONEXIONES + CARDINALIDADES -->
+        <!-- CONECTORES CON CARDINALIDADES -->
         <!-- Paciente - Cita -->
-        <mxCell id="edge1" value="1" style="edgeStyle=elbowEdgeStyle;endArrow=none;" edge="1" parent="1" source="Paciente" target="rel_pac_cita">
+        <mxCell id="edge1" edge="1" parent="1" source="Paciente" target="R_tiene" value="1">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="edge2" value="N" style="edgeStyle=elbowEdgeStyle;endArrow=none;" edge="1" parent="1" source="rel_pac_cita" target="Cita">
+        <mxCell id="edge2" edge="1" parent="1" source="R_tiene" target="Cita" value="N">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
 
         <!-- Médico - Cita -->
-        <mxCell id="edge3" value="1" style="edgeStyle=elbowEdgeStyle;endArrow=none;" edge="1" parent="1" source="Medico" target="rel_med_cita">
+        <mxCell id="edge3" edge="1" parent="1" source="Medico" target="R_atiende" value="1">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="edge4" value="N" style="edgeStyle=elbowEdgeStyle;endArrow=none;" edge="1" parent="1" source="rel_med_cita" target="Cita">
+        <mxCell id="edge4" edge="1" parent="1" source="R_atiende" target="Cita" value="N">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
 
         <!-- Médico - Especialidad -->
-        <mxCell id="edge5" value="N" style="edgeStyle=elbowEdgeStyle;endArrow=none;" edge="1" parent="1" source="Medico" target="rel_med_espec">
+        <mxCell id="edge5" edge="1" parent="1" source="Medico" target="R_pertenece" value="N">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="edge6" value="1" style="edgeStyle=elbowEdgeStyle;endArrow=none;" edge="1" parent="1" source="rel_med_espec" target="Especialidad">
+        <mxCell id="edge6" edge="1" parent="1" source="R_pertenece" target="Especialidad" value="1">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
 
         <!-- Paciente - Factura -->
-        <mxCell id="edge7" value="1" style="edgeStyle=elbowEdgeStyle;endArrow=none;" edge="1" parent="1" source="Paciente" target="rel_pac_fact">
+        <mxCell id="edge7" edge="1" parent="1" source="Paciente" target="R_genera" value="1">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="edge8" value="N" style="edgeStyle=elbowEdgeStyle;endArrow=none;" edge="1" parent="1" source="rel_pac_fact" target="Factura">
+        <mxCell id="edge8" edge="1" parent="1" source="R_genera" target="Factura" value="N">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
 
         <!-- Paciente - Ingreso -->
-        <mxCell id="edge9" value="1" style="edgeStyle=elbowEdgeStyle;endArrow=none;" edge="1" parent="1" source="Paciente" target="rel_pac_ing">
+        <mxCell id="edge9" edge="1" parent="1" source="Paciente" target="R_ocupa" value="1">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="edge10" value="N" style="edgeStyle=elbowEdgeStyle;endArrow=none;" edge="1" parent="1" source="rel_pac_ing" target="Ingreso">
+        <mxCell id="edge10" edge="1" parent="1" source="R_ocupa" target="Ingreso" value="N">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
 
         <!-- Ingreso - Habitación -->
-        <mxCell id="edge11" value="N" style="edgeStyle=elbowEdgeStyle;endArrow=none;" edge="1" parent="1" source="Ingreso" target="rel_ing_hab">
+        <mxCell id="edge11" edge="1" parent="1" source="Ingreso" target="R_asignado" value="N">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="edge12" value="1" style="edgeStyle=elbowEdgeStyle;endArrow=none;" edge="1" parent="1" source="rel_ing_hab" target="Habitacion">
+        <mxCell id="edge12" edge="1" parent="1" source="R_asignado" target="Habitacion" value="1">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
 
       </root>
-    </mxGraphModel>
-  </diagram>
-</mxfile>
+    </mxGraphModel
