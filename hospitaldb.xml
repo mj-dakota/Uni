@@ -1,0 +1,134 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="DER Completo Hospital" id="DER_Completo_Hospital">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- ENTIDADES -->
+        <mxCell id="Paciente" value="Paciente" style="shape=rectangle;rounded=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="80" y="100" width="120" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="Medico" value="Médico" style="shape=rectangle;rounded=0;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="400" y="100" width="120" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="Especialidad" value="Especialidad" style="shape=rectangle;rounded=0;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="700" y="100" width="120" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="Cita" value="Cita" style="shape=rectangle;rounded=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="240" y="280" width="120" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="Factura" value="Factura" style="shape=rectangle;rounded=0;fillColor=#cdeb8b;strokeColor=#36393d;" vertex="1" parent="1">
+          <mxGeometry x="80" y="450" width="120" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="Ingreso" value="Ingreso" style="shape=rectangle;rounded=0;fillColor=#ffe6cc;strokeColor=#ff9900;" vertex="1" parent="1">
+          <mxGeometry x="240" y="450" width="120" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="Habitacion" value="Habitación" style="shape=rectangle;rounded=0;fillColor=#f5f5f5;strokeColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="500" y="450" width="120" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="Diagnostico" value="Diagnóstico" style="shape=rectangle;rounded=0;fillColor=#f4cccc;strokeColor=#990000;" vertex="1" parent="1">
+          <mxGeometry x="80" y="600" width="120" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="Tratamiento" value="Tratamiento" style="shape=rectangle;rounded=0;fillColor=#d9ead3;strokeColor=#38761d;" vertex="1" parent="1">
+          <mxGeometry x="400" y="600" width="120" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="Medicamento" value="Medicamento" style="shape=rectangle;rounded=0;fillColor=#ffe599;strokeColor=#bf9000;" vertex="1" parent="1">
+          <mxGeometry x="700" y="600" width="120" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="Prescripcion" value="Prescripción" style="shape=rectangle;rounded=0;fillColor=#d0e0e3;strokeColor=#1155cc;" vertex="1" parent="1">
+          <mxGeometry x="240" y="720" width="120" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="Examen" value="Examen" style="shape=rectangle;rounded=0;fillColor=#ead1dc;strokeColor=#990099;" vertex="1" parent="1">
+          <mxGeometry x="500" y="720" width="120" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- RELACIONES (Rombos) -->
+        <mxCell id="R_tiene" value="tiene" style="shape=rhombus;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="180" y="200" width="80" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="R_atiende" value="atiende" style="shape=rhombus;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="340" y="200" width="80" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="R_pertenece" value="pertenece" style="shape=rhombus;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="560" y="100" width="80" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="R_genera" value="genera" style="shape=rhombus;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="140" y="370" width="80" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="R_ocupa" value="ocupa" style="shape=rhombus;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="200" y="370" width="80" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="R_asignado" value="asignado" style="shape=rhombus;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="380" y="370" width="80" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="R_diag" value="diagnostica" style="shape=rhombus;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="80" y="530" width="80" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="R_trata" value="trata" style="shape=rhombus;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="400" y="530" width="80" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="R_prescribe" value="prescribe" style="shape=rhombus;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="400" y="680" width="80" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="R_examen" value="realiza" style="shape=rhombus;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="500" y="660" width="80" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- CONECTORES + CARDINALIDADES -->
+        <mxCell edge="1" parent="1" source="Paciente" target="R_tiene" value="1"/>
+        <mxCell edge="1" parent="1" source="R_tiene" target="Cita" value="N"/>
+
+        <mxCell edge="1" parent="1" source="Medico" target="R_atiende" value="1"/>
+        <mxCell edge="1" parent="1" source="R_atiende" target="Cita" value="N"/>
+
+        <mxCell edge="1" parent="1" source="Medico" target="R_pertenece" value="N"/>
+        <mxCell edge="1" parent="1" source="R_pertenece" target="Especialidad" value="1"/>
+
+        <mxCell edge="1" parent="1" source="Paciente" target="R_genera" value="1"/>
+        <mxCell edge="1" parent="1" source="R_genera" target="Factura" value="N"/>
+
+        <mxCell edge="1" parent="1" source="Paciente" target="R_ocupa" value="1"/>
+        <mxCell edge="1" parent="1" source="R_ocupa" target="Ingreso" value="N"/>
+
+        <mxCell edge="1" parent="1" source="Ingreso" target="R_asignado" value="N"/>
+        <mxCell edge="1" parent="1" source="R_asignado" target="Habitacion" value="1"/>
+
+        <mxCell edge="1" parent="1" source="Cita" target="R_diag" value="1"/>
+        <mxCell edge="1" parent="1" source="R_diag" target="Diagnostico" value="N"/>
+
+        <mxCell edge="1" parent="1" source="Diagnostico" target="R_trata" value="1"/>
+        <mxCell edge="1" parent="1" source="R_trata" target="Tratamiento" value="N"/>
+
+        <mxCell edge="1" parent="1" source="Tratamiento" target="R_prescribe" value="1"/>
+        <mxCell edge="1" parent="1" source="R_prescribe" target="Prescripcion" value="N"/>
+
+        <mxCell edge="1" parent="1" source="Prescripcion" target="Medicamento" value="N"/>
+
+        <mxCell edge="1" parent="1" source="Cita" target="R_examen" value="1"/>
+        <mxCell edge="1" parent="1" source="R_examen" target="Examen" value="N"/>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
