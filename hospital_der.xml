@@ -1,104 +1,113 @@
 <mxfile host="app.diagrams.net">
-  <diagram name="HospitalDB" id="hospital-der">
+  <diagram name="DER Clásico Hospital con Cardinalidades" id="hospital-der-classic-card">
     <mxGraphModel dx="1220" dy="720" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0"/>
         <mxCell id="1" parent="0"/>
 
-        <!-- Paciente -->
-        <mxCell id="Paciente" value="Paciente&#xa;PK id_paciente&#xa;nombre, apellido&#xa;fecha_nacimiento&#xa;sexo&#xa;direccion&#xa;telefono&#xa;correo (UQ)" style="shape=rectangle;whiteSpace=wrap;rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
-          <mxGeometry x="100" y="100" width="200" height="160" as="geometry"/>
+        <!-- ENTIDADES -->
+        <mxCell id="Paciente" value="Paciente" style="shape=rectangle;rounded=0;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="80" y="100" width="120" height="50" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="Medico" value="Médico" style="shape=rectangle;rounded=0;whiteSpace=wrap;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="400" y="100" width="120" height="50" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="Especialidad" value="Especialidad" style="shape=rectangle;rounded=0;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="700" y="100" width="120" height="50" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="Cita" value="Cita" style="shape=rectangle;rounded=0;whiteSpace=wrap;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="240" y="280" width="120" height="50" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="Factura" value="Factura" style="shape=rectangle;rounded=0;whiteSpace=wrap;fillColor=#cdeb8b;strokeColor=#36393d;" vertex="1" parent="1">
+          <mxGeometry x="80" y="450" width="120" height="50" as="geometry"/>
         </mxCell>
 
-        <!-- Médico -->
-        <mxCell id="Medico" value="Médico&#xa;PK id_medico&#xa;nombre, apellido&#xa;telefono&#xa;correo (UQ)&#xa;FK id_especialidad" style="shape=rectangle;whiteSpace=wrap;rounded=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
-          <mxGeometry x="500" y="100" width="200" height="160" as="geometry"/>
+        <mxCell id="Ingreso" value="Ingreso" style="shape=rectangle;rounded=0;whiteSpace=wrap;fillColor=#ffe6cc;strokeColor=#ff9900;" vertex="1" parent="1">
+          <mxGeometry x="240" y="450" width="120" height="50" as="geometry"/>
         </mxCell>
 
-        <!-- Especialidad -->
-        <mxCell id="Especialidad" value="Especialidad&#xa;PK id_especialidad&#xa;nombre&#xa;descripcion" style="shape=rectangle;whiteSpace=wrap;rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
-          <mxGeometry x="800" y="100" width="200" height="120" as="geometry"/>
+        <mxCell id="Habitacion" value="Habitación" style="shape=rectangle;rounded=0;whiteSpace=wrap;fillColor=#f5f5f5;strokeColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="500" y="450" width="120" height="50" as="geometry"/>
         </mxCell>
 
-        <!-- Cita -->
-        <mxCell id="Cita" value="Cita&#xa;PK id_cita&#xa;fecha, hora&#xa;motivo&#xa;FK id_paciente&#xa;FK id_medico" style="shape=rectangle;whiteSpace=wrap;rounded=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
-          <mxGeometry x="300" y="320" width="220" height="140" as="geometry"/>
+        <!-- RELACIONES -->
+        <mxCell id="rel_pac_cita" value="tiene" style="shape=rhombus;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="180" y="200" width="80" height="60" as="geometry"/>
         </mxCell>
 
-        <!-- Diagnóstico -->
-        <mxCell id="Diagnostico" value="Diagnóstico&#xa;PK id_diagnostico&#xa;descripcion&#xa;fecha&#xa;FK id_cita" style="shape=rectangle;whiteSpace=wrap;rounded=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
-          <mxGeometry x="300" y="500" width="220" height="120" as="geometry"/>
+        <mxCell id="rel_med_cita" value="atiende" style="shape=rhombus;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="340" y="200" width="80" height="60" as="geometry"/>
         </mxCell>
 
-        <!-- Factura -->
-        <mxCell id="Factura" value="Factura&#xa;PK id_factura&#xa;fecha_emision&#xa;monto_total&#xa;FK id_paciente" style="shape=rectangle;whiteSpace=wrap;rounded=1;fillColor=#cdeb8b;strokeColor=#36393d;" vertex="1" parent="1">
-          <mxGeometry x="100" y="300" width="200" height="120" as="geometry"/>
+        <mxCell id="rel_med_espec" value="pertenece" style="shape=rhombus;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="560" y="100" width="80" height="60" as="geometry"/>
         </mxCell>
 
-        <!-- Ingreso -->
-        <mxCell id="Ingreso" value="Ingreso&#xa;PK id_ingreso&#xa;fecha_ingreso&#xa;fecha_alta&#xa;FK id_paciente&#xa;FK id_habitacion" style="shape=rectangle;whiteSpace=wrap;rounded=1;fillColor=#ffe6cc;strokeColor=#ff9900;" vertex="1" parent="1">
-          <mxGeometry x="100" y="500" width="220" height="140" as="geometry"/>
+        <mxCell id="rel_pac_fact" value="genera" style="shape=rhombus;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="140" y="370" width="80" height="60" as="geometry"/>
         </mxCell>
 
-        <!-- Habitación -->
-        <mxCell id="Habitacion" value="Habitación&#xa;PK id_habitacion&#xa;numero (UQ)&#xa;tipo&#xa;estado" style="shape=rectangle;whiteSpace=wrap;rounded=1;fillColor=#f5f5f5;strokeColor=#999999;" vertex="1" parent="1">
-          <mxGeometry x="100" y="680" width="200" height="120" as="geometry"/>
+        <mxCell id="rel_pac_ing" value="ocupa" style="shape=rhombus;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="200" y="370" width="80" height="60" as="geometry"/>
         </mxCell>
 
-        <!-- Tratamiento -->
-        <mxCell id="Tratamiento" value="Tratamiento&#xa;PK id_tratamiento&#xa;descripcion&#xa;duracion_dias&#xa;FK id_ingreso" style="shape=rectangle;whiteSpace=wrap;rounded=1;fillColor=#e1f5fe;strokeColor=#039be5;" vertex="1" parent="1">
-          <mxGeometry x="400" y="680" width="220" height="120" as="geometry"/>
+        <mxCell id="rel_ing_hab" value="asignado" style="shape=rhombus;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="380" y="370" width="80" height="60" as="geometry"/>
         </mxCell>
 
-        <!-- Prescripción -->
-        <mxCell id="Prescripcion" value="Prescripción&#xa;PK id_prescripcion&#xa;FK id_tratamiento&#xa;FK id_medicamento&#xa;dosis&#xa;frecuencia&#xa;duracion_dias" style="shape=rectangle;whiteSpace=wrap;rounded=1;fillColor=#ffecb3;strokeColor=#ffb300;" vertex="1" parent="1">
-          <mxGeometry x="650" y="680" width="240" height="140" as="geometry"/>
-        </mxCell>
-
-        <!-- Medicamento -->
-        <mxCell id="Medicamento" value="Medicamento&#xa;PK id_medicamento&#xa;nombre&#xa;dosis_recomendada&#xa;presentacion" style="shape=rectangle;whiteSpace=wrap;rounded=1;fillColor=#f3e5f5;strokeColor=#8e24aa;" vertex="1" parent="1">
-          <mxGeometry x="950" y="680" width="220" height="120" as="geometry"/>
-        </mxCell>
-
-        <!-- Examen -->
-        <mxCell id="Examen" value="Examen&#xa;PK id_examen&#xa;tipo&#xa;fecha&#xa;resultado&#xa;FK id_paciente" style="shape=rectangle;whiteSpace=wrap;rounded=1;fillColor=#d7ccc8;strokeColor=#6d4c41;" vertex="1" parent="1">
-          <mxGeometry x="500" y="500" width="220" height="120" as="geometry"/>
-        </mxCell>
-
-        <!-- Relaciones principales -->
-        <mxCell id="rel_pac_cita" edge="1" parent="1" source="Paciente" target="Cita">
+        <!-- CONEXIONES + CARDINALIDADES -->
+        <!-- Paciente - Cita -->
+        <mxCell id="edge1" value="1" style="edgeStyle=elbowEdgeStyle;endArrow=none;" edge="1" parent="1" source="Paciente" target="rel_pac_cita">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="rel_med_cita" edge="1" parent="1" source="Medico" target="Cita">
+        <mxCell id="edge2" value="N" style="edgeStyle=elbowEdgeStyle;endArrow=none;" edge="1" parent="1" source="rel_pac_cita" target="Cita">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="rel_espec_med" edge="1" parent="1" source="Especialidad" target="Medico">
+
+        <!-- Médico - Cita -->
+        <mxCell id="edge3" value="1" style="edgeStyle=elbowEdgeStyle;endArrow=none;" edge="1" parent="1" source="Medico" target="rel_med_cita">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="rel_cita_diag" edge="1" parent="1" source="Cita" target="Diagnostico">
+        <mxCell id="edge4" value="N" style="edgeStyle=elbowEdgeStyle;endArrow=none;" edge="1" parent="1" source="rel_med_cita" target="Cita">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="rel_pac_factura" edge="1" parent="1" source="Paciente" target="Factura">
+
+        <!-- Médico - Especialidad -->
+        <mxCell id="edge5" value="N" style="edgeStyle=elbowEdgeStyle;endArrow=none;" edge="1" parent="1" source="Medico" target="rel_med_espec">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="rel_pac_ingreso" edge="1" parent="1" source="Paciente" target="Ingreso">
+        <mxCell id="edge6" value="1" style="edgeStyle=elbowEdgeStyle;endArrow=none;" edge="1" parent="1" source="rel_med_espec" target="Especialidad">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="rel_ing_hab" edge="1" parent="1" source="Ingreso" target="Habitacion">
+
+        <!-- Paciente - Factura -->
+        <mxCell id="edge7" value="1" style="edgeStyle=elbowEdgeStyle;endArrow=none;" edge="1" parent="1" source="Paciente" target="rel_pac_fact">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="rel_ing_trat" edge="1" parent="1" source="Ingreso" target="Tratamiento">
+        <mxCell id="edge8" value="N" style="edgeStyle=elbowEdgeStyle;endArrow=none;" edge="1" parent="1" source="rel_pac_fact" target="Factura">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="rel_trat_presc" edge="1" parent="1" source="Tratamiento" target="Prescripcion">
+
+        <!-- Paciente - Ingreso -->
+        <mxCell id="edge9" value="1" style="edgeStyle=elbowEdgeStyle;endArrow=none;" edge="1" parent="1" source="Paciente" target="rel_pac_ing">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="rel_presc_med" edge="1" parent="1" source="Prescripcion" target="Medicamento">
+        <mxCell id="edge10" value="N" style="edgeStyle=elbowEdgeStyle;endArrow=none;" edge="1" parent="1" source="rel_pac_ing" target="Ingreso">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="rel_pac_examen" edge="1" parent="1" source="Paciente" target="Examen">
+
+        <!-- Ingreso - Habitación -->
+        <mxCell id="edge11" value="N" style="edgeStyle=elbowEdgeStyle;endArrow=none;" edge="1" parent="1" source="Ingreso" target="rel_ing_hab">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
+        <mxCell id="edge12" value="1" style="edgeStyle=elbowEdgeStyle;endArrow=none;" edge="1" parent="1" source="rel_ing_hab" target="Habitacion">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
       </root>
     </mxGraphModel>
   </diagram>
