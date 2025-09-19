@@ -9,27 +9,21 @@
         <mxCell id="Paciente" value="Paciente" style="shape=rectangle;rounded=0;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
           <mxGeometry x="80" y="100" width="120" height="50" as="geometry"/>
         </mxCell>
-        
         <mxCell id="Medico" value="Médico" style="shape=rectangle;rounded=0;whiteSpace=wrap;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
           <mxGeometry x="400" y="100" width="120" height="50" as="geometry"/>
         </mxCell>
-        
         <mxCell id="Especialidad" value="Especialidad" style="shape=rectangle;rounded=0;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
           <mxGeometry x="700" y="100" width="120" height="50" as="geometry"/>
         </mxCell>
-        
         <mxCell id="Cita" value="Cita" style="shape=rectangle;rounded=0;whiteSpace=wrap;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
           <mxGeometry x="240" y="280" width="120" height="50" as="geometry"/>
         </mxCell>
-        
         <mxCell id="Factura" value="Factura" style="shape=rectangle;rounded=0;whiteSpace=wrap;fillColor=#cdeb8b;strokeColor=#36393d;" vertex="1" parent="1">
           <mxGeometry x="80" y="450" width="120" height="50" as="geometry"/>
         </mxCell>
-
         <mxCell id="Ingreso" value="Ingreso" style="shape=rectangle;rounded=0;whiteSpace=wrap;fillColor=#ffe6cc;strokeColor=#ff9900;" vertex="1" parent="1">
           <mxGeometry x="240" y="450" width="120" height="50" as="geometry"/>
         </mxCell>
-
         <mxCell id="Habitacion" value="Habitación" style="shape=rectangle;rounded=0;whiteSpace=wrap;fillColor=#f5f5f5;strokeColor=#999999;" vertex="1" parent="1">
           <mxGeometry x="500" y="450" width="120" height="50" as="geometry"/>
         </mxCell>
@@ -38,29 +32,23 @@
         <mxCell id="R_tiene" value="tiene" style="shape=rhombus;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
           <mxGeometry x="180" y="200" width="80" height="50" as="geometry"/>
         </mxCell>
-
         <mxCell id="R_atiende" value="atiende" style="shape=rhombus;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
           <mxGeometry x="340" y="200" width="80" height="50" as="geometry"/>
         </mxCell>
-
         <mxCell id="R_pertenece" value="pertenece" style="shape=rhombus;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
           <mxGeometry x="560" y="100" width="80" height="50" as="geometry"/>
         </mxCell>
-
         <mxCell id="R_genera" value="genera" style="shape=rhombus;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
           <mxGeometry x="140" y="370" width="80" height="50" as="geometry"/>
         </mxCell>
-
         <mxCell id="R_ocupa" value="ocupa" style="shape=rhombus;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
           <mxGeometry x="200" y="370" width="80" height="50" as="geometry"/>
         </mxCell>
-
         <mxCell id="R_asignado" value="asignado" style="shape=rhombus;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
           <mxGeometry x="380" y="370" width="80" height="50" as="geometry"/>
         </mxCell>
 
         <!-- CONECTORES CON CARDINALIDADES -->
-        <!-- Paciente - Cita -->
         <mxCell id="edge1" edge="1" parent="1" source="Paciente" target="R_tiene" value="1">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
@@ -68,7 +56,6 @@
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
 
-        <!-- Médico - Cita -->
         <mxCell id="edge3" edge="1" parent="1" source="Medico" target="R_atiende" value="1">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
@@ -76,7 +63,6 @@
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
 
-        <!-- Médico - Especialidad -->
         <mxCell id="edge5" edge="1" parent="1" source="Medico" target="R_pertenece" value="N">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
@@ -84,7 +70,6 @@
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
 
-        <!-- Paciente - Factura -->
         <mxCell id="edge7" edge="1" parent="1" source="Paciente" target="R_genera" value="1">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
@@ -92,7 +77,6 @@
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
 
-        <!-- Paciente - Ingreso -->
         <mxCell id="edge9" edge="1" parent="1" source="Paciente" target="R_ocupa" value="1">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
@@ -100,7 +84,6 @@
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
 
-        <!-- Ingreso - Habitación -->
         <mxCell id="edge11" edge="1" parent="1" source="Ingreso" target="R_asignado" value="N">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
@@ -109,4 +92,6 @@
         </mxCell>
 
       </root>
-    </mxGraphModel
+    </mxGraphModel>
+  </diagram>
+</mxfile>
