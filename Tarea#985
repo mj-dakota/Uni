@@ -1,0 +1,72 @@
+import os
+
+def menu():
+    print("\n--- Gestor de archivos ---")
+    print("1. Ver archivos")
+    print("2. Crear carpeta")
+    print("3. Eliminar archivo")
+    print("4. Mostrar ruta actual")
+    print("5. Cambiar de directorio")
+    print("6. Crear archivo")
+    print("7. Salir")
+
+while True:
+    menu()
+    opcion = input("Elige una opción: ")
+
+    if opcion == "1":
+        print("\nContenido del directorio:")
+        try:
+            for f in os.listdir():
+                print(f)
+        except Exception as e:
+            print(f"Error al listar archivos: {e}")
+
+    elif opcion == "2":
+        nombre = input("Nombre de la carpeta: ")
+        try:
+            os.mkdir(nombre)
+            print(f"Carpeta '{nombre}' creada con éxito.")
+        except FileExistsError:
+            print("La carpeta ya existe.")
+        except Exception as e:
+            print(f"Error: {e}")
+
+    elif opcion == "3":
+        archivo = input("Nombre del archivo a eliminar: ")
+        try:
+            os.remove(archivo)
+            print(f"Archivo '{archivo}' eliminado.")
+        except FileNotFoundError:
+            print("El archivo no existe.")
+        except Exception as e:
+            print(f"Error: {e}")
+
+    elif opcion == "4":
+        print(f"\nRuta actual: {os.getcwd()}")
+
+    elif opcion == "5":
+        nueva_ruta = input("Introduce la nueva ruta: ")
+        try:
+            os.chdir(nueva_ruta)
+            print(f"Cambiado a: {os.getcwd()}")
+        except FileNotFoundError:
+            print("Esa ruta no existe.")
+        except Exception as e:
+            print(f"Error: {e}")
+
+    elif opcion == "6":
+        nombre_archivo = input("Nombre del nuevo archivo (con extensión): ")
+        try:
+            with open(nombre_archivo, 'w') as f:
+                pass  # Crea el archivo vacío
+            print(f"Archivo '{nombre_archivo}' creado.")
+        except Exception as e:
+            print(f"Error: {e}")
+
+    elif opcion == "7":
+        print("Saliendo del gestor... ¡Bye!")
+        break
+    
+    else:
+        print("Opción no válida, intenta de nuevo.")
