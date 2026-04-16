@@ -23,7 +23,6 @@ def run_cmd(cmd, get_output=True, timeout=35, stop_on_error=True):
     return output
 
 def check(test_str):
-    # Basado en la terminal: solo permite caracteres dentro de [.aclist- ]
     pattern = r'^[.acflst\s]*$'
     if re.match(pattern, test_str):
         return True
